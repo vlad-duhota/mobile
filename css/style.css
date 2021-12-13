@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header{
+    background: beige;
+    padding: 40px 0;
+
+}
+
+
+.menu-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-link{
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.menu-btn{
+    display: none;
+}
+
+.toggle-btn {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    z-index: 3;
+    background: coral;
+    border-radius: 50%;
+    padding: 12px;
+}
+
+
+.toggle-btn span,
+.toggle-btn span::before,
+.toggle-btn span::after
+{
+    display: block;
+    height: 3px;
+    border-radius: 20px;
+    width: 25px;
+    background: #333;
+    position: absolute;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.toggle-btn span{
+    top:50%;
+    transform: translateY(-50%);
+}
+@media (max-width:578px) {
+    .menu{
+        position: fixed;
+        top:0;
+        height: 100vh;
+        width: 100%;
+        background: #ececec;
+        right: -100%;
+        z-index: 2;
+        transition: 0.3s;
+    }
+
+
+    .menu-list{
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        align-content: space-around;
+    }
+
+    .toggle-btn{
+        display: block;
+    }
+
+    .toggle-btn span::before
+    {
+        content: '';
+        top: -8px;
+    }
+
+    .toggle-btn span::after
+    {
+        content: '';
+        top: 8px;
+    }
+
+    
+
+}
+
+.menu-btn:checked ~ .menu{
+    right: 0;
+    display: block;
+}
+
+.menu-btn:checked + .toggle-btn span{
+    transform: rotate(45deg);
+}
+
+.menu-btn:checked + .toggle-btn span:before{
+    top: 0;
+}
+
+.menu-btn:checked + .toggle-btn span:after{
+    top: 0;
+    transform: rotate(-90deg);
+}
+
+
